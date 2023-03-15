@@ -4,7 +4,7 @@ import chevronLeft from "/public/img/arrowl.png"
 import chevronRight from "/public/img/arrowr.png"
 import featured1 from "/public/img/featured1.png"
 import featured2 from "/public/img/featured2.png"
-import featured3 from "/public/img/featured3.png"
+import featured3 from "/public/img/pizza.png"
 
 const pizzas = [
   featured1,
@@ -18,15 +18,15 @@ const Featured = () => {
     <div className={style.container}>
       <Image src={chevronLeft} alt="chevron" width="50" height="50" />
       <div className={style.wrapper}>
-        {
-          pizzas.map((pizza, i) => {
+        <div  key={i}className={style.imgContainer}>
+          {
+            pizzas.map((pizza, i) => {
             return(
-              <div  key={i}className={style.imgContainer}>
-                <Image src={pizza} alt="pizza" width="" height="" />
-              </div>
-            )
-          })
-        }
+              <Image src={pizza} alt="pizza" width="350" height="" />
+              )
+            })
+          }
+        </div>
       </div>
       <Image src={chevronRight} alt="chevron" width="50" height="50"/>
     </div>
