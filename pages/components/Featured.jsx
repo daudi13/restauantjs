@@ -2,9 +2,9 @@ import style from "@/styles/Featured.module.css"
 import Image from "next/image"
 import chevronLeft from "/public/img/arrowl.png"
 import chevronRight from "/public/img/arrowr.png"
-import featured1 from "/public/img/featured1.jpg"
-import featured2 from "/public/img/featured2.jpeg"
-import featured3 from "/public/img/featured3.jpeg"
+import featured1 from "/public/img/featured1.png"
+import featured2 from "/public/img/featured2.png"
+import featured3 from "/public/img/featured3.png"
 
 const pizzas = [
   featured1,
@@ -22,7 +22,7 @@ const Featured = () => {
           pizzas.map((pizza, i) => {
             return(
               <div  key={i}className={style.imgContainer}>
-                <Image src={pizza} alt="pizza" width="150" height="150" />
+                <Image src={pizza} alt="pizza" width="" height="" />
               </div>
             )
           })
