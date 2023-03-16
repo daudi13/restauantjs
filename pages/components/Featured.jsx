@@ -27,7 +27,7 @@ const Featured = () => {
   return (
     <div className={style.container}>
       <div className={style.arrowContainer} style={{left: 0}} onClick={()=> handleArrow("l")}>
-        <Image src={chevronLeft} alt="chevron" layout="fill" /> 
+        <Image src={chevronLeft} alt="chevron" layout="fill" objectFit="contain"/> 
       </div>
       <div className={style.wrapper}>
           {
@@ -40,7 +40,7 @@ const Featured = () => {
             })
           }
       </div>
-      <div className={style.arrowContainer} style={{right: 0}} onClick={()=> handleArrow("r")}>
+      <div className={style.arrowContainer} style={{right: 0}} onClick={()=> handleArrow("r")} objectFit="contain">
         <Image src={chevronRight} alt="chevron" layout="fill"/> 
       </div>
     </div>
