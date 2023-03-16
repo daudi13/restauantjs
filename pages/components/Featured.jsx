@@ -7,8 +7,8 @@ import featured2 from "/public/img/featured2.png"
 import featured3 from "/public/img/featured3.png"
 
 const pizzas = [
-  featured1,
-  featured2,
+  // featured1,
+  // featured2,
   featured3,
 ]
 
@@ -16,19 +16,23 @@ const pizzas = [
 const Featured = () => {
   return (
     <div className={style.container}>
-      <Image src={chevronLeft} alt="chevron" layout="fill" />
+      <div className={style.arrowContainer} style={{left: 0}}>
+        <Image src={chevronLeft} alt="chevron" layout="fill" /> 
+      </div>
       <div className={style.wrapper}>
         <div className={style.imgContainer}>
           {
             pizzas.map((pizza, i) => {
             return(
-              <Image src={pizza} key={i} alt="pizza" width="350" height="" />
+              <Image src={pizza} key={i} alt="pizza" layout="fill" />
               )
             })
           }
         </div>
       </div>
-      <Image src={chevronRight} alt="chevron" layout="fill"/>
+      <div className={style.arrowContainer} style={{right: 0}}>
+        <Image src={chevronRight} alt="chevron" layout="fill"/> 
+      </div>
     </div>
   )
 }
