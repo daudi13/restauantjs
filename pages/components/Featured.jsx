@@ -5,18 +5,28 @@ import chevronRight from "/public/img/arrowr.png"
 import featured1 from "/public/img/featured2.png"
 import featured2 from "/public/img/featured.png"
 import featured3 from "/public/img/featured3.png"
+import { useState } from "react"
 
-const pizzas = [
-  featured1,
-  featured2,
-  featured3,
-]
 
 
 const Featured = () => {
+  const pizzas = [featured1, featured2, featured3];
+  const [index, setIndex] = useState(0);
+
+  const handleArrow = (direction) => {
+    if(direction === "l"){
+      setIndex(index !== 0 ? index -1 : 2)
+    }
+    if(direction === "r"){
+      setIndex(index !== 2 ? index+1 : 0)
+    }
+  }
+
+  console.log(index)
+
   return (
     <div className={style.container}>
-      <div className={style.arrowContainer} style={{left: 0}}>
+      <div className={style.arrowContainer} style={{left: 0}} onClick={()=> handleArrow("l")}>
         <Image src={chevronLeft} alt="chevron" layout="fill" /> 
       </div>
       <div className={style.wrapper}>
@@ -30,7 +40,7 @@ const Featured = () => {
             })
           }
       </div>
-      <div className={style.arrowContainer} style={{right: 0}}>
+      <div className={style.arrowContainer} style={{right: 0}} onClick={()=> handleArrow("r")}>
         <Image src={chevronRight} alt="chevron" layout="fill"/> 
       </div>
     </div>

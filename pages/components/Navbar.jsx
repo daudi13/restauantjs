@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className={styles.cart}>
           <Image src={cart} alt="telephone icon" width="32" height="32"/>
         </div>
-        <div class className={styles.counter}>2</div>
+        <div className={styles.counter}>2</div>
       </div>
     </div>
   )
