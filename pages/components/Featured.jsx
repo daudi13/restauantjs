@@ -15,7 +15,7 @@ const Featured = () => {
 
   const handleArrow = (direction) =>{
       if(direction==="l"){
-          setIndex(index !== 1 ? index-1 : 2)
+          setIndex(index !== 0 ? index-1 : 2)
       }
       if(direction==="r"){
           setIndex(index !== 2 ? index+1 : 0)
