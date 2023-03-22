@@ -4,9 +4,12 @@
 }
 
 .item {
-  width: 2;
   position: relative;
   display: flex;
+}
+
+.item:nth-child(1) {
+  flex: 1;
 }
 
 .item:last-child{
@@ -36,4 +39,15 @@
 .add{
   margin-top: 25px;
   color: aliceblue;
+}
+
+@media screen and (max-width: 480px) {
+  .item:nth-child(1){
+    display: none;
+  }
+
+  .item:last-child{
+    flex-direction: column;
+    gap: 50px
+  }
 }
