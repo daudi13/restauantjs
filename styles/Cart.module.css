@@ -20,7 +20,7 @@
 
 .table{
   width: 100%;
-  border-spacing: 20px;
+  border-spacing: 10px;
 }
 
 .name{
@@ -46,7 +46,6 @@
 
 .wrapper{
   width: 90%;
-  max-width: 300px;
   background-color: #333;
   display: flex;
   gap: 10px;
@@ -65,4 +64,62 @@
   color: #d1411e;
   font-weight: bold;
   cursor: pointer;
+}
+
+@media screen and (max-width:480px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+  }
+
+  .trTitle{
+    display: none;
+  }
+
+  .tr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .right{
+    width: 100%;
+    text-align: center;
+  }
+  
+  .wrapper{
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  .button{
+    border-radius: 10px;
+  }
+
+  .price{
+    font-size: 10px;
+  }
+
+  .image{
+    width: 100%;
+    height: 100%;
+  }
+
+  .imgContainer{
+    width: 50vw;
+    height: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .name, .total{
+    font-size: 24px;
+  }
 }
