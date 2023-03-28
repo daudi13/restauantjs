@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     try {
       const product = await Product.find()
       res.status(200).json(product)
-    } catch {
+    } catch (err) {
       res.status(500).json(err);
     }
   }
