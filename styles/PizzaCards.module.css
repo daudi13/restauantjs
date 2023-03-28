@@ -10,6 +10,10 @@
   margin-top: 40px;
 }
 
+.link{
+  text-align: center;
+}
+
 .container:hover{
   background-color: #d4aa9f;
   transition: all 0.5s ease;
