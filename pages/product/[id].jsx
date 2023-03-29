@@ -14,7 +14,7 @@ const Product = ({pizza}) => {
       </div> 
       <div className={styles.right}>
         <h1 className={styles.title}>{pizza.title}</h1>
-        <span className={styles.prize}>${pizza.prices[0][size]}</span>
+        <span className={styles.prize}>${pizza.prices[size]}</span>
         <p className={styles.desc}>{pizza.desc}</p>
         <h3 className={styles.choose}>Choose the size</h3>
         <div className={styles.sizes}>
@@ -24,11 +24,17 @@ const Product = ({pizza}) => {
         </div>
         <h3 className={styles.choose}>Choose additional ingredients</h3>
         <div className={styles.ingredients}>
-          <div className={styles.option}>
-            <input type="checkbox" id="double" name="double" className={styles.checkbox} />
-            <label style={{marginLeft: "10px"}}>Double ingredients</label>
-          </div>
-          <div className={styles.option}>
+          {
+            pizza.extraOption.map((option) => {
+              return (
+                  <div className={styles.option} key={option._id}>
+                    <input type="checkbox" id={option.text} name={option.text} className={styles.checkbox} />
+                  <label style={{ marginLeft: "10px" }}>{option.text}</label>
+                  </div>
+              )
+            })
+          }
+          {/* <div className={styles.option}>
             <input type="checkbox" id="cheese" name="cheese" className={styles.checkbox} />
             <label style={{marginLeft: "10px"}}>Extra Cheese</label>
           </div>
@@ -39,7 +45,7 @@ const Product = ({pizza}) => {
           <div className={styles.option}>
             <input type="checkbox" id="garlic" name="garlic" className={styles.checkbox} />
             <label style={{marginLeft: "10px"}}>Garlic sause</label>
-          </div>
+          </div> */}
         </div>
         <div className={styles.add}>
           <input type="number" defaultValue={1} className={styles.quantity} />
