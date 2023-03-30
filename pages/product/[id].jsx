@@ -5,6 +5,28 @@ import axios from "axios";
 
 const Product = ({pizza}) => {
   const [size, setSize] = useState(0)
+  const [prize, setPrize] = useState(pizza.prices[0])
+
+  const changePrice = (number) => {
+    setPrize(prize + number)
+  }
+
+  const handleSize = (sizeIndex) => {
+    const difference = pizza.prices[sizeIndex] - pizza.prices[size]
+    setSize(sizeIndex)
+    changePrice(difference)
+  }
+
+  const handleChange = (e, option) => {
+    const checked = e.target.checked
+
+    if(checked){
+      changePrice(option.price);
+    } else {
+      changePrice(-option.price)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -14,13 +36,13 @@ const Product = ({pizza}) => {
       </div> 
       <div className={styles.right}>
         <h1 className={styles.title}>{pizza.title}</h1>
-        <span className={styles.prize}>${pizza.prices[size]}</span>
+        <span className={styles.prize}>{prize}</span>
         <p className={styles.desc}>{pizza.desc}</p>
         <h3 className={styles.choose}>Choose the size</h3>
         <div className={styles.sizes}>
-          <button className={styles.btn} onClick={() => setSize(0)}>Small</button>
-          <button className={styles.btn} onClick={() => setSize(1)}>Medium</button>
-          <button className={styles.btn} onClick={() => setSize(2)}>Large</button>
+          <button className={styles.btn} onClick={() => handleSize(0)}>Small</button>
+          <button className={styles.btn} onClick={() => handleSize(1)}>Medium</button>
+          <button className={styles.btn} onClick={() => handleSize(2)}>Large</button>
         </div>
         <h3 className={styles.choose}>Choose additional ingredients</h3>
         <div className={styles.ingredients}>
@@ -28,7 +50,7 @@ const Product = ({pizza}) => {
             pizza.extraOption.map((option) => {
               return (
                   <div className={styles.option} key={option._id}>
-                    <input type="checkbox" id={option.text} name={option.text} className={styles.checkbox} />
+                    <input type="checkbox" id={option.text} name={option.text} className={styles.checkbox} onChange={(e) =>handleChange(e, option)} />
                   <label style={{ marginLeft: "10px" }}>{option.text}</label>
                   </div>
               )
