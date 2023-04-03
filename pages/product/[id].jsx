@@ -61,18 +61,6 @@ const Product = ({pizza}) => {
               )
             })
           }
-          {/* <div className={styles.option}>
-            <input type="checkbox" id="cheese" name="cheese" className={styles.checkbox} />
-            <label style={{marginLeft: "10px"}}>Extra Cheese</label>
-          </div>
-          <div className={styles.option}>
-            <input type="checkbox" id="spicy" name="spicy" className={styles.checkbox} />
-            <label style={{marginLeft: "10px"}}>Spicy sause</label>
-          </div>
-          <div className={styles.option}>
-            <input type="checkbox" id="garlic" name="garlic" className={styles.checkbox} />
-            <label style={{marginLeft: "10px"}}>Garlic sause</label>
-          </div> */}
         </div>
         <div className={styles.add}>
           <input type="number" defaultValue={1} className={styles.quantity} />
