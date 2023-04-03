@@ -5,7 +5,8 @@ import axios from "axios";
 
 const Product = ({pizza}) => {
   const [size, setSize] = useState(0)
-  const [prize, setPrize] = useState(pizza.prices[0])
+  const [prize, setPrize] = useState(pizza.prices[0]);
+  const [extras, setExtras] = useState([]);
 
   const changePrice = (number) => {
     setPrize(prize + number)
@@ -22,10 +23,14 @@ const Product = ({pizza}) => {
 
     if(checked){
       changePrice(option.price);
+      setExtras((prev) => [...prev, option])
     } else {
-      changePrice(-option.price)
+      changePrice(-option.price);
+      setExtras(extras.filter(extra => extra._id !== option._id))
     }
   }
+
+  console.log(extras);
 
   return (
     <div className={styles.container}>
